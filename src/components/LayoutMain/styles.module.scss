@@ -1,0 +1,13 @@
+@use 'src/styles/breakpoints' as breakpoints;
+
+:local {
+  .layoutMain {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    flex: 1;
+    width: 80%;
+    min-width: breakpoints.$lg;
+    max-width: breakpoints.$xl;
+  }
+}

@@ -1,0 +1,21 @@
+@use 'src/styles/palette' as palette;
+@use 'src/styles/breakpoints' as breakpoints;
+
+:local {
+  .header {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 60px;
+    background-color: palette.$dark;
+  }
+  .headerContent {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 80%;
+    min-width: breakpoints.$lg;
+    max-width: breakpoints.$xl;
+  }
+}

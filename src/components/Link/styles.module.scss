@@ -1,0 +1,15 @@
+@use 'src/styles/palette' as palette;
+
+:local {
+  .link {
+    color: white;
+
+    &:hover {
+      color: palette.$accent;
+    }
+
+    &:visited {
+      color: palette.$grey400;
+    }
+  }
+}
