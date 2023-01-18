@@ -1,0 +1,8 @@
+@use 'src/styles/palette' as palette;
+
+:local {
+  .logoBox {
+    display: flex;
+    align-items: center;
+  }
+}

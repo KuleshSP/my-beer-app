@@ -1,0 +1,65 @@
+@use 'src/styles/palette' as palette;
+
+:local {
+  .box {
+    flex-direction: row;
+  }
+  .leftSide,
+  .rightSide {
+    flex: 0.5;
+    padding-top: 50px;
+  }
+  .leftSide {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: palette.$golden;
+  }
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-start;
+    padding-left: 50px;
+  }
+  .image {
+    display: block;
+    width: 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: cover;
+  }
+  .title {
+    margin-bottom: 20px;
+    color: palette.$golden;
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .attributesTable {
+    table-layout: fixed;
+    width: 100%;
+
+    &:td {
+      padding: 8px 0;
+    }
+    & td:first-child {
+      width: 150px;
+      font-weight: 500;
+    }
+  }
+  .goBackLink {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: palette.$textDark;
+    &:visited {
+      color: palette.$textDark;
+
+      &:hover {
+        color: palette.$text;
+      }
+    }
+  }
+}

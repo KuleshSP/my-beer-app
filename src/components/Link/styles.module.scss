@@ -3,6 +3,7 @@
 :local {
   .link {
     color: white;
+    text-decoration: underline;
 
     &:hover {
       color: palette.$accent;
@@ -10,6 +11,10 @@
 
     &:visited {
       color: palette.$grey400;
+
+      &:hover {
+        color: palette.$accent;
+      }
     }
   }
 }

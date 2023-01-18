@@ -1,0 +1,89 @@
+@use 'src/styles/palette' as palette;
+
+:local {
+  .paginationBox {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .searchInput {
+    height: 40px;
+    width: 300px;
+    background-color: palette.$golden;
+    color: palette.$white;
+
+    &:focus {
+      outline-color: palette.$white;
+    }
+    &::placeholder {
+      color: palette.$light;
+    }
+  }
+
+  .clearButton {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(0%, -50%);
+    font-size: 0;
+    border: none;
+    background: none;
+
+    &:hover {
+      cursor: pointer;
+
+      &:before,
+      &:after {
+        background-color: palette.$golden;
+      }
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 20px;
+      background-color: palette.$main;
+      transform: rotate(45deg) translate(-50%, -50%);
+      transform-origin: top left;
+      content: '';
+    }
+
+    &:after {
+      transform: rotate(-45deg) translate(-50%, -50%);
+    }
+  }
+  .nextButton {
+    min-width: 150px;
+    height: 50px;
+    background-color: palette.$dark;
+    border: 2px solid palette.$accent;
+    color: palette.$text;
+    font-size: 18px;
+
+    &:focus {
+      outline-color: palette.$white;
+    }
+
+    &:hover {
+      border: 2px solid palette.$light;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      background-color: palette.$light;
+
+      &:hover {
+        border: 2px solid palette.$accent;
+        opacity: 0.5;
+      }
+    }
+  }
+}

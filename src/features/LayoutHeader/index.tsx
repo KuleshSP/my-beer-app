@@ -1,13 +1,18 @@
 import React from 'react';
-import {Header, Link} from 'components';
+import {useMatch} from 'react-router-dom';
+import {Header} from 'components';
 import routeTemplates from 'routes/route-templates';
+import Search from 'features/Search';
+import Logo from 'components/Logo';
 
 const LayoutHeader = (): JSX.Element => {
+  const isMatchHomePage = useMatch(routeTemplates.home.path);
+
   return (
     <Header>
-      <Link to={routeTemplates.home.path}>Logo</Link>
+      <Logo />
 
-      <div>Search</div>
+      {isMatchHomePage && <Search />}
     </Header>
   );
 };
