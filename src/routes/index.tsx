@@ -30,5 +30,5 @@ export const router = createBrowserRouter(
         ],
       },
     ],
-    {basename: 'https://KuleshSP.github.io/my-beer-app/'},
+    {basename: '/my-beer-app/'},
 );
