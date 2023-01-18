@@ -8,24 +8,27 @@ import HomePage from 'pages/_home/components';
 import BeerOverviewPage from 'pages/beerOverview/components';
 import routeTemplates from './route-templates';
 
-export const router = createBrowserRouter([
-  {
-    path: routeTemplates.home.path,
-    element: <IndexLayout />,
-    // errorElement: <PageNotFound />,
-    children: [
+export const router = createBrowserRouter(
+    [
       {
         path: routeTemplates.home.path,
-        element: <HomePage />,
-      },
-      {
-        path: routeTemplates.overview.path,
-        element: <BeerOverviewPage />,
-      },
-      {
-        path: '*',
-        element: <PageNotFound />,
+        element: <IndexLayout />,
+        errorElement: <PageNotFound />,
+        children: [
+          {
+            path: routeTemplates.home.path,
+            element: <HomePage />,
+          },
+          {
+            path: routeTemplates.overview.path,
+            element: <BeerOverviewPage />,
+          },
+          {
+            path: '*',
+            element: <PageNotFound />,
+          },
+        ],
       },
     ],
-  },
-]);
+    {basename: 'https://KuleshSP.github.io/my-beer-app/'},
+);
