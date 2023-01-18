@@ -16,6 +16,16 @@
     justify-content: center;
     background-color: palette.$golden;
   }
+  .leftSide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1px;
+    transform: translateX(-100%);
+    width: 100%;
+    height: 100%;
+    background-color: palette.$golden;
+  }
   .rightSide {
     display: flex;
     flex-direction: column;
@@ -23,13 +33,32 @@
     justify-items: flex-start;
     padding-left: 50px;
   }
+  .imageBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
   .image {
     display: block;
-    width: 30%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     object-fit: cover;
+  }
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: palette.$golden;
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  .imageOverlayHidden {
+    opacity: 0;
   }
   .title {
     margin-bottom: 20px;

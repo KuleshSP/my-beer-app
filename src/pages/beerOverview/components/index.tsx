@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom';
 import {RootState} from '_main/services/types';
 import {Link, Paper} from 'components';
 import Error from 'features/Error';
+import cx from 'classnames';
 import {getCardAsyncState, getBeerOverviewPageState} from '../services/selectors';
 import {actions as beerOverviewActions} from '../services/actions';
 import classes from './styles.module.scss';
@@ -24,6 +25,7 @@ const BeerOverviewPage = (props: ReduxProps) => {
   const {card, cardAsyncState, mountPage, unmountPage} = props;
   const params = useParams();
   const navigate = useNavigate();
+  const [isLoading, toggleIsLoading] = useState<Boolean>(true);
 
   useEffect(() => {
     mountPage({id: Number(params.id)});
@@ -40,7 +42,18 @@ const BeerOverviewPage = (props: ReduxProps) => {
   return (
     <Paper classNames={classes.box}>
       <div className={classes.leftSide}>
-        {card && <img className={classes.image} src={card.image_url} />}
+        {card && (
+          <div className={classes.imageBox}>
+            <img
+              className={classes.image}
+              src={card.image_url}
+              onLoad={() => toggleIsLoading(false)}
+            />
+            <div
+              className={cx(classes.imageOverlay, {[classes.imageOverlayHidden]: !isLoading})}
+            />
+          </div>
+        )}
 
         <Link
           to={''}

@@ -4,9 +4,7 @@
   .cardBox {
     display: flex;
     flex-direction: column;
-    height: 350px;
     border-radius: 4px;
-    overflow: hidden;
     background-color: palette.$white;
     color: palette.$text;
 
@@ -27,8 +25,11 @@
   }
   .image,
   .noImage {
-    height: 158px;
     width: 100%;
+    aspect-ratio: 1/1;
+  }
+  .imageBox {
+    position: relative;
   }
   .image {
     display: block;
@@ -37,6 +38,19 @@
     background-repeat: no-repeat;
     background-position: center center;
     object-fit: contain;
+  }
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: palette.$white;
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  .imageOverlayHidden {
+    opacity: 0;
   }
   .noImage {
     display: flex;
@@ -50,5 +64,6 @@
     margin: 0;
     background-color: palette.$light;
     flex: 1;
+    font-size: 13px;
   }
 }
